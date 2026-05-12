@@ -1,15 +1,14 @@
 package com.qaracter.codeopsdemo.commons.model;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
-@ApiModel(value = "SingleResponse", description = "Synthetic single response payload")
+@Schema(name = "SingleResponse", description = "Synthetic single response payload")
 public class SingleResponse<T> {
 
-    @ApiModelProperty(value = "Response metadata", required = true)
+    @Schema(description = "Response metadata", requiredMode = Schema.RequiredMode.REQUIRED)
     private ResponseCode responseCode;
 
-    @ApiModelProperty(value = "Response body", required = true)
+    @Schema(description = "Response body", requiredMode = Schema.RequiredMode.REQUIRED)
     private T data;
 
     public ResponseCode getResponseCode() {

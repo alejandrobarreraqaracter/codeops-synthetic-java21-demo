@@ -1,15 +1,14 @@
 package com.qaracter.codeopsdemo.commons.model;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
-@ApiModel(value = "ResponseCode", description = "Synthetic response code wrapper")
+@Schema(name = "ResponseCode", description = "Synthetic response code wrapper")
 public class ResponseCode {
 
-    @ApiModelProperty(value = "Business response code", required = true, allowableValues = "OK,ERROR")
+    @Schema(description = "Business response code", requiredMode = Schema.RequiredMode.REQUIRED, allowableValues = {"OK", "ERROR"})
     private String code;
 
-    @ApiModelProperty(value = "Human readable message", required = true)
+    @Schema(description = "Human readable message", requiredMode = Schema.RequiredMode.REQUIRED)
     private String message;
 
     public ResponseCode() {

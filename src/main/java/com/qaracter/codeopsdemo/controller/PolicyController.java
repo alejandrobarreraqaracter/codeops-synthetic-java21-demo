@@ -5,14 +5,14 @@ import com.qaracter.codeopsdemo.commons.model.SingleResponse;
 import com.qaracter.codeopsdemo.model.PolicyRequest;
 import com.qaracter.codeopsdemo.model.PolicyResponse;
 import com.qaracter.codeopsdemo.service.PolicyService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(tags = "Synthetic policies")
+@Tag(name = "Synthetic policies")
 @RestController
 @RequestMapping("/api/policies")
 public class PolicyController {
@@ -23,7 +23,7 @@ public class PolicyController {
         this.policyService = policyService;
     }
 
-    @ApiOperation(value = "Evaluate a synthetic policy")
+    @Operation(summary = "Evaluate a synthetic policy")
     @PostMapping("/evaluate")
     public SingleResponse<PolicyResponse> evaluate(@RequestBody PolicyRequest request) {
         SingleResponse<PolicyResponse> response = new SingleResponse<>();

@@ -1,8 +1,27 @@
+spring:
+  application:
+    name: codeops-synthetic-java21-demo
+  cloud:
+    config:
+      enabled: false
+
+server:
+  port: 8080
+
+legacy:
+  downstream:
+    policy-url: https://legacy.example.internal/policies
+  audit:
+    masked-logging: false
+
 management:
   endpoints:
     web:
       exposure:
         include: health,info
+  tracing:
+    sampling:
+      probability: 1.0
 
 codeops:
   demo:
